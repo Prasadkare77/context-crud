@@ -8,10 +8,21 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
+//import useDispath for calling the actions in the reduce
+import { useDispatch } from 'react-redux';
+
+// import reducer action from employee slice action
+import { addEmployee } from './employeeSlice';
+
 import { useNavigate } from 'react-router-dom';
 import { EmployeeContext } from './EmployeeStore';
 
+
+
 const AddEmployee = () => {
+
+  const dispath = useDispatch()
+  
   const navigate = useNavigate()
   // console.log(EmployeeContext);
   const[empId,setEmpId] = useState('')
@@ -19,7 +30,7 @@ const AddEmployee = () => {
   const[position,setPosition] = useState('')
   const[company,setCompany] = useState('')
 
-  const {addEmployee} = useContext(EmployeeContext) 
+  // const {addEmployee} = useContext(EmployeeContext) 
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -27,8 +38,11 @@ const AddEmployee = () => {
     
     // Logic to add employee data into store
     const employee = {id:Date.now(), empId, name, position, company}
-    addEmployee(employee)
+    // addEmployee(employee)
     // console.log(employee);
+
+    // Call the addEmployee action of employee slice
+    dispatch(addEmployee(employee))
     navigate('/')
   }
   return (

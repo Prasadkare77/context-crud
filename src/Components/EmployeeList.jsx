@@ -5,10 +5,15 @@ import './crudStyle.css'
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 
-import { EmployeeContext } from './EmployeeStore'
+// TO read the data from store we nedd useSelector
+import {useSelector} from 'react-redux'
+
+// import { EmployeeContext } from './EmployeeStore'
 
 const EmployeeList = () => {
-  const {employees} = useContext(EmployeeContext)
+  // const {employees} = useContext(EmployeeContext)
+
+  const employees = useSelector(state=>state.employee.employees)
 
   const navigate= useNavigate()
   return (
