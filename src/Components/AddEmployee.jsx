@@ -21,8 +21,8 @@ import { EmployeeContext } from './EmployeeStore';
 
 const AddEmployee = () => {
 
-  const dispath = useDispatch()
-  
+  const dispatch = useDispatch()
+
   const navigate = useNavigate()
   // console.log(EmployeeContext);
   const[empId,setEmpId] = useState('')
