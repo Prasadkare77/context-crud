@@ -13,7 +13,8 @@ export const employeeSlice = createSlice({
             state.employees.push(action.payload)
         },
         updateEmployee:(state,action)=>{
-
+            console.log(action);
+            state.employees.push(action.payload)
         },
         deleteEmployee:(state,action)=>{
 

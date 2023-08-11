@@ -8,15 +8,15 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
+
+import { useNavigate } from 'react-router-dom';
+import { EmployeeContext } from './EmployeeStore';
+
 //import useDispath for calling the actions in the reduce
 import { useDispatch } from 'react-redux';
 
 // import reducer action from employee slice action
 import { addEmployee } from './employeeSlice';
-
-import { useNavigate } from 'react-router-dom';
-import { EmployeeContext } from './EmployeeStore';
-
 
 
 const AddEmployee = () => {
@@ -60,15 +60,11 @@ const AddEmployee = () => {
                 <Col><label>Company</label></Col>
                 <Col><input type='text' value={company} onChange={(e)=>setCompany(e.target.value)}></input></Col>
             </Row><br/>
-            <Row>
-                
-            </Row>
             <br/>
             <div className='btn'>
                 <Button variant="outline-primary" type="submit" >Add</Button>
                 <Button variant="outline-warning" type="reset" onClick={()=>navigate('/')}>Cancel</Button>
             </div>
-            
         </Container>
       </Form>
 

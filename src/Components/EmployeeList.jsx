@@ -5,7 +5,8 @@ import './crudStyle.css'
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 
-// TO read the data from store we nedd useSelector
+// To
+// read the data from store we nedd useSelector
 import {useSelector} from 'react-redux'
 
 // import { EmployeeContext } from './EmployeeStore'
@@ -32,6 +33,7 @@ const EmployeeList = () => {
                   <th>Name</th>
                   <th>Position</th>
                   <th>Company</th>
+                  <th>Actions</th>
               </tr>
           </thead>
           <tbody>
@@ -42,6 +44,9 @@ const EmployeeList = () => {
                 <td>{employee.name}</td>
                 <td>{employee.position}</td>
                 <td>{employee.company}</td>
+                <td>  <Button variant="outline-primary" onClick={()=>navigate(`/editEmployee/${employee.id}`)}>Edit</Button>
+                 {/* <Button variant="outline-danger" onClick={()=>deleteEmployee(empployee.id)}>Delete</Button> */}
+                 </td>
               </tr>
             ))}
           </tbody>
