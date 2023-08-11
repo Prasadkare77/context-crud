@@ -5,18 +5,25 @@ import './crudStyle.css'
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 
-// To
-// read the data from store we nedd useSelector
+// To read the data from store we nedd useSelector
 import {useSelector} from 'react-redux'
+import { useDispatch } from 'react-redux';
 
 // import { EmployeeContext } from './EmployeeStore'
+import { deleteEmployee } from './employeeSlice';
+import { EmployeeContext } from './EmployeeStore';
 
 const EmployeeList = () => {
   // const {employees} = useContext(EmployeeContext)
+  const dispatch = useDispatch();
 
+  // const {employee,deleteEmployee} = useContext(EmployeeContext)
   const employees = useSelector(state=>state.employee.employees)
-
   const navigate= useNavigate()
+
+  const handleDelete =(empId)=>{
+    dispatch(deleteEmployee(empId))
+  }
   return (
     <div>
       <h5>Employee List</h5><br/>
@@ -45,15 +52,13 @@ const EmployeeList = () => {
                 <td>{employee.position}</td>
                 <td>{employee.company}</td>
                 <td>  <Button variant="outline-primary" onClick={()=>navigate(`/editEmployee/${employee.id}`)}>Edit</Button>
-                 {/* <Button variant="outline-danger" onClick={()=>deleteEmployee(empployee.id)}>Delete</Button> */}
+                 <Button variant="outline-danger" onClick={()=>handleDelete(employee.id)}>Delete</Button>
                  </td>
               </tr>
             ))}
           </tbody>
       </Table>
-
       </div>
-      
     </div>
   )
 }

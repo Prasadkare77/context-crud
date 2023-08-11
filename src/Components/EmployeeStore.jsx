@@ -1,4 +1,5 @@
 import React, { createContext, useState } from "react";
+import { updateEmployee } from "./employeeSlice";
 
 export const EmployeeContext = createContext()
 
@@ -11,9 +12,22 @@ export const EmployeeProvider = ({children}) => {
         setEmployees([...employees,employee])
     } 
 
+    const updateEmployee = (id,updateEmployee)=>{
+        setEmployees(
+            employees.map((employee)=>employee.id === id ? updateEmployee : employee)
+        )
+    }
+
+    const deleteEmployee = (id) => {
+        console.log(id);
+        setEmployees(
+            employees.filter((employee)=>employee.id!==id)
+        )
+    }
+
     return(
         <div>
-            <EmployeeContext.Provider value={{employees,addEmployee}}>
+            <EmployeeContext.Provider value={{employees,addEmployee,updateEmployee,deleteEmployee}}>
                 {children}
             </EmployeeContext.Provider>
         </div>

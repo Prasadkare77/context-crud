@@ -1,4 +1,4 @@
-import React,{useContext, useState,useEffect} from 'react'
+import React,{useContext, useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 
 import Col from "react-bootstrap/Col";
@@ -6,13 +6,17 @@ import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-import { UseSelector, useSelector } from 'react-redux/es/hooks/useSelector';
+import {useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 
 import { EmployeeContext } from './EmployeeStore';
 
+import { updateEmployee } from './employeeSlice';
+
 const EditEmployee = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   // const {employees, updateEmployee} = useContext(EmployeeContext)
   const employees = useSelector(state=>state.employee.employees)
@@ -38,7 +42,8 @@ const EditEmployee = () => {
  const handleUpdate =(e)=>{
     e.preventDefault();
     const updatedEmployee ={id:parseInt(id),empId,name,position,company}
-    updateEmployee(parseInt(id),updatedEmployee)
+    //updateEmployee(parseInt(id),updatedEmployee)
+    dispatch(updateEmployee({id:parseInt(id),updateEmployee}))
 
     navigate('/')
  }

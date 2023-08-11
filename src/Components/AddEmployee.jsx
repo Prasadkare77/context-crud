@@ -16,7 +16,7 @@ import { EmployeeContext } from './EmployeeStore';
 import { useDispatch } from 'react-redux';
 
 // import reducer action from employee slice action
-import { addEmployee } from './employeeSlice';
+import { addEmployee } from './employeeSlice.js';
 
 
 const AddEmployee = () => {
@@ -38,7 +38,7 @@ const AddEmployee = () => {
     
     // Logic to add employee data into store
     const employee = {id:Date.now(), empId, name, position, company}
-    // addEmployee(employee)
+    // addEmployee(employee) // Calling method of employee context
     // console.log(employee);
 
     // Call the addEmployee action of employee slice
