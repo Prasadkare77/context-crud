@@ -1,5 +1,4 @@
 import React, { createContext, useState } from "react";
-import { updateEmployee } from "./employeeSlice";
 
 export const EmployeeContext = createContext()
 

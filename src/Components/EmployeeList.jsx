@@ -11,7 +11,7 @@ import { useDispatch } from 'react-redux';
 
 // import { EmployeeContext } from './EmployeeStore'
 import { deleteEmployee } from './employeeSlice';
-import { EmployeeContext } from './EmployeeStore';
+// import { EmployeeContext } from './EmployeeStore';
 
 const EmployeeList = () => {
   // const {employees} = useContext(EmployeeContext)

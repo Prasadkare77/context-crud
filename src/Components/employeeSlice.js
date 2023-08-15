@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    employees:[]
+    employees:['']
 }
 const employeeSlice = createSlice({
     name: 'employee',
@@ -13,10 +13,10 @@ const employeeSlice = createSlice({
         },
         updateEmployee:(state,action)=>{
             console.log(action.payload);
-            const {id,updateEmployee} = action.payload;
+            const {id,updatedEmployee} = action.payload;
             const index = state.employees.findIndex(emp=>emp.Id === id)
             if(index!==1){
-                state.employees[index] = {...state.employees[index], ...updateEmployee}
+                state.employees[index] = {...state.employees[index],...updatedEmployee}
             }
         },
         deleteEmployee:(state,action)=>{
