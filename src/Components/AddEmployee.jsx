@@ -12,7 +12,7 @@ import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
 import { EmployeeContext } from './EmployeeStore';
 
-//import useDispath for calling the actions in the reduce
+//import useDispath for calling the actions in the redux
 import { useDispatch } from 'react-redux';
 
 // import reducer action from employee slice action
